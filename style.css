@@ -166,6 +166,7 @@ section{
     display: flex; /* Make icons a flex container */
     align-items: center; /* Vertically center items */
     gap: 1rem; /* Spacing between icons */
+    flex-wrap: wrap; /* Ensure icons adjust on smaller screens */
 }
 
 .header .icons div {
@@ -177,7 +178,6 @@ section{
     color: var(--color);
     border-radius: .5rem;
     font-size: 2rem;
-    margin-left: .3rem;
     cursor: pointer;
     text-align: center;
     justify-content: center;
@@ -228,17 +228,16 @@ section{
     cursor: pointer;
 }
 
-.header .icons div {
-    height: 4.5rem;
-    width: 4.5rem;
-    line-height: 4.5rem;
-    border: .1rem solid var(--color);
-    color: var(--color);
-    border-radius: .5rem;
-    font-size: 2rem;
-    margin-left: .3rem;
-    cursor: pointer;
-    text-align: center;
+/* Ensure icons are always visible on mobile */
+@media (max-width: 768px) {
+    .icons {
+        gap: 0.5rem; /* Reduce spacing on smaller screens */
+    }
+    .header .icons div {
+        height: 4rem;
+        width: 4rem;
+        font-size: 1.8rem;
+    }
 }
 
 
@@ -1238,20 +1237,9 @@ body.dark-mode {
     cursor: pointer;
     font-size: 1.5rem;
     margin-left: 1rem;
-}
-
-/* Align all icons in the header */
-.icons {
-    align-items: center;
-    gap: 1rem; /* Adjust spacing between icons */
-}
-
-.theme-toggle {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1.5rem; /* Match the size of other icons */
-    cursor: pointer;
     position: relative;
 }
 
@@ -1260,7 +1248,8 @@ body.dark-mode {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-}  
+}
+
 
 /* team */
 .team {
